@@ -1,0 +1,56 @@
+﻿@model LibraryData.Models.LibraryBranch
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>LibraryBranch</h4>
+    <hr />
+    <center>
+        <div>
+            <img class="detailImage" src="@Model.ImageUrl" />
+        </div>
+        <dl class="" style="text-align:center">
+
+            <dt >
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OpenDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OpenDate)
+            </dd>
+
+        </dl>
+    </center>
+</div>
+<div>
+    
+    <a asp-action="Index">Back to List</a>
+</div>

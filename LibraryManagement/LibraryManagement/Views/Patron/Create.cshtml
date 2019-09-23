@@ -1,0 +1,79 @@
+﻿@model LibraryManagement.Models.Patron.PatronDetailModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Patron", FormMethod.Post))
+{
+
+    <div class="container">
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <h2 class="align-content-center">Patron Create</h2>
+                </div>
+
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.HomeLibraryBranchId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.DropDownListFor(c => c.HomeLibraryBranchId, Model.LibraryBranchesList, "------Select Branch-----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.HomeLibraryBranchId, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.FirstName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.FirstName, null, new { @class = "form-control", placeholder = "FirstName" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    <span id="NameIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.LastName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.LastName, null, new { @class = "form-control", placeholder = "LastName" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    <span id="CourseDurationIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Address, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Address, null, new { @class = "form-control", placeholder = "Address" })
+                    <span id="CreditIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.TelePhoneNumber, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.TelePhoneNumber, new { @class = "form-control", placeholder = "TelePhoneNumber" })
+                    <span id="OutLineIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.EditorFor(c => c.DateOfBirth, null, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Fees, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Fees, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <div class="">
+                        <input type="submit" id="SubmitBtn" class="btn btn-success" value="Save" />
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div style="color:red">@TempData["ErrorMessage"]</div>
+}
+

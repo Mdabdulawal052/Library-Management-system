@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LibraryData.Models.LibraryBranch>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="">
+    <table class="table  table-hover mt-5 pt-5">
+        <thead class="table-primary">
+            <tr>
+                <th>Branch Name</th>
+                <th>ImageUrl</th>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Telephone</th>
+                
+                <th>Action Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var org in Model)
+                {
+                    <tr>
+                        <td>@org.Name</td>
+                        <td>@org.ImageUrl</td>
+                        <td>@org.Address</td>
+                        <td>@org.Description</td>
+                        <td>@org.Telephone</td>
+                       
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = org.Id }) |
+                            @Html.ActionLink("Details", "Detail", new { id = org.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = org.Id })
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+</div>
+
+
+

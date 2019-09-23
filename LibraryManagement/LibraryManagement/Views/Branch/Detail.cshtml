@@ -1,0 +1,57 @@
+﻿@model LibraryManagement.Models.Branch.BranchDetailModel
+@{
+    ViewData["Title"] = Model.Name + "Detail";
+}
+
+<div class="container">
+    <div class="header clearfix" detailHidden >
+        <h2 class="text-muted">Branch Information</h2>
+    </div>
+    <div class="jumbotron">
+        <div class="row branchInfo">
+            <div class="col-12 mb-3 mt-0">
+                <img src="@Model.ImageUrl" width="100%" height="400"/>
+            </div>
+                <div class="col-md-8">
+                    <h2>@Model.Name</h2>
+                    <div class="branchContact">
+                        <div id="branchAdress">Address:@Model.Address</div>
+                        <div id="branchTel">Address:@Model.Telephone</div>
+                    </div>
+                    <div id="branchDescription">
+                        <p class="caption">@Model.BranchDescription</p>
+                    </div>
+                    <div id="branchHours">
+                        <ul>
+                            @foreach (var day in Model.HoursOpen)
+                            {
+                                <li>@day</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <table>
+                        <tr>
+                            <td class="itemLabel">Date Opened:</td>
+                            <td>@Model.OpenDate</td>
+                        </tr>
+                        <tr>
+                            <td class="itemLabel">Number of Patrons:</td>
+                            <td>@Model.NumberOfPattorns</td>
+                        </tr>
+                        <tr>
+                            <td class="itemLabel">Number of Assets:</td>
+                            <td>@Model.NumberOfAssets</td>
+                        </tr>
+                        <tr>
+                            <td class="itemLabel">Value of Assets:</td>
+                            <td>@Model.TotalAssetValue</td>
+                        </tr>
+                    </table>
+                </div>
+           
+        </div>
+    </div>
+</div>
+

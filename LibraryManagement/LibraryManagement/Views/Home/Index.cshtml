@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Library Management System";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <div class="row">
+        <div class="col-sm-10 offset-1">
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/images/Book (1).jpg" alt="Library Catalog">
+                        <p class="card-text">Some quick example text to  content.</p>
+                        <div class="card-body">
+                            <a asp-controller="Catalog" asp-action="Index">View Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/images/ManWithBook.jpg" alt="User Image">
+                        <p class="card-text">Some quick example text to  content.</p>
+                        <div class="card-body">
+                            <a asp-controller="Patron" asp-action="Index">View Patron Index</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/images/Library.jpg" alt="Library Image">
+                        <p class="card-text">Some quick example text to  content.</p>
+                        <div class="card-body">
+                            <a asp-controller="Branch" asp-action="Index">View Branch Index</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

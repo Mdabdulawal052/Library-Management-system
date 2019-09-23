@@ -1,0 +1,106 @@
+﻿@model LibraryManagement.Models.LibraryAsset.LibraryAssetCV
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "LibraryAsset", FormMethod.Post))
+{
+
+
+    <div class="container">
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <h2 class="align-content-center">Course Entry</h2>
+                </div>
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.LocationId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.DropDownListFor(c => c.LocationId, Model.LibraryBranchesList, "------Select Branch------", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+                    <span id="OrganizationIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.StatusId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.DropDownListFor(c => c.StatusId, Model.StatusesList, "------Select Status-----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StatusId, "", new { @class = "text-danger" })
+                    <span id="OrganizationIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Title, null, new { @class = "form-control", placeholder = "Title" })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    <span id="NameIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Year, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Year, null, new { @class = "form-control", placeholder = "Year" })
+                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    <span id="CourseDurationIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Cost, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Cost, null, new { @class = "form-control", placeholder = "Cost" })
+                    <span id="CreditIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.ImageUrl, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <input type="file" name="ImageUrl" value="ImageUrl" />
+                    <span id="OutLineIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.NumberOfCopies, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.NumberOfCopies, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.ISBN, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.ISBN, new { @class = "form-control", placeholder = "ISBN" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Author, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Author, new { @class = "form-control", placeholder = "Author" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.DewyIndex, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.DewyIndex, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Director, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Director, new { @class = "form-control", placeholder = "Director" })
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" id="SubmitBtn" class="btn btn-success" value="Save" />
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div style="color:red">@TempData["ErrorMessage"]</div>
+}
+
+
+
+

@@ -1,0 +1,99 @@
+﻿@model LibraryManagement.Models.LibraryAsset.LibraryAssetCV
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "LibraryAsset", FormMethod.Post))
+{
+
+
+    <div class="container">
+        <div class="form-group">
+            <h2 class="align-content-center">Course Entry</h2>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LocationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(c => c.LocationId, ViewBag.LocationList as SelectList, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StatusId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(c => c.StatusId, ViewBag.StatusList as SelectList, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StatusId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+
+                    @Html.LabelFor(c => c.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Title, null, new { @class = "form-control", placeholder = "Name" })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    <span id="NameIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Year, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Year, null, new { @class = "form-control", placeholder = "CourseDuration" })
+                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    <span id="CourseDurationIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Cost, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextBoxFor(c => c.Cost, null, new { @class = "form-control", placeholder = "Credit" })
+                    <span id="CreditIdErrorMsg" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => c.ImageUrl, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextAreaFor(c => c.ImageUrl, new { @class = "form-control" })
+                    <span id="OutLineIdErrorMsg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.NumberOfCopies, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextAreaFor(c => c.NumberOfCopies, new { @class = "form-control" })
+
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(c => c.ISBN, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextAreaFor(c => c.ISBN, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.Author, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextAreaFor(c => c.Author, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(c => c.DewyIndex, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.TextAreaFor(c => c.DewyIndex, new { @class = "form-control" })
+
+                </div>
+
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="SubmitBtn" class="btn btn-success" value="Save" />
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+}
+
+
+
+
+

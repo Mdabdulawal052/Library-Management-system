@@ -1,0 +1,118 @@
+﻿@model LibraryManagement.Models.LibraryBranchNew.LibraryBranchCv
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "LibraryBranch", FormMethod.Post))
+{
+
+
+    <div class="container">
+        <div class="form-group ">
+            @Html.LabelFor(c => c.Name, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(c => c.Name, null, new { @class = "form-control" })
+
+            <span class="text-danger" id="CourseValidationMessage"></span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.Address, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(c => c.Address, null, new { @class = "form-control" })
+
+            <span class="text-danger" id="BatchValidationMessage"></span>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Telephone, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(c => c.Telephone, null, new { @class = "form-control" })
+
+            <span class="text-danger" id="BatchValidationMessage"></span>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Description, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(c => c.Description, null, new { @class = "form-control" })
+
+            <span class="text-danger" id="BatchValidationMessage"></span>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.OpenDate, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(c => c.OpenDate, null, new { @class = "form-control" })
+
+            <span class="text-danger" id="BatchValidationMessage"></span>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.ImageUrl, new { @class = "control-label col-md-2" })
+            <input type="file" name="ImageUrl" value="ImageUrl" />
+
+            <span class="text-danger" id="BatchValidationMessage"></span>
+        </div>
+
+
+
+        <div id="ShowOption">
+            <div class="container ">
+
+                <div class="form row">
+
+
+                    <div class="form-group ml-3">
+                        @Html.LabelFor(c => c.DayOfWeek, new { @class = "control-label " })
+                        @Html.EditorFor(c => c.DayOfWeek, null, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group ml-2 mr-2">
+                        @Html.LabelFor(c => c.OpenTime, new { @class = "control-label" })
+                        @Html.EditorFor(c => c.OpenTime, null, new { @class = "form-control" })
+
+                        <span class="text-danger" id="BatchValidationMessage"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.CloseTime, new { @class = "control-label " })
+                        @Html.EditorFor(c => c.CloseTime, null, new { @class = " " })
+
+                        <span class="text-danger" id="BatchValidationMessage"></span>
+                    </div>
+
+                    <div class="col-1 ml-3">
+
+                        <button type="button" id="branchHourSubmitbtn" class="btn btn-primary btn-lg active "><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-10">
+                    <table class="table  table-hover mt-5 pt-5">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Sl</th>
+                                <th>Day Of Week</th>
+                                <th>Open Time</th>
+                                <th>Close Time</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="BranchHourCreateBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Create" class="btn btn-default" />
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div style="color:red">@TempData["ErrorMessage"]</div>
+}
+@section Scripts
+    {
+
+    <script src="~/js/LibraryBranch/LibraryBrachScript.js"></script>
+
+}
+
+

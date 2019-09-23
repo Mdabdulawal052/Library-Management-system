@@ -1,0 +1,38 @@
+﻿@model LibraryData.Models.Book
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="itemTitle">@Model.Title</p>
+            <p id="itemAuthor">@Model.Author</p>
+            <p id="itemStatus">@Model.DewyIndex</p>
+            
+        </div>
+        <div class="col-md-4 detailInfo">
+            <table>
+                <tr>
+                    <td class="itemLabel">ISBN:</td>
+                    <td class="itemValue">@Model.ISBN</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Call Number:</td>
+                    <td class="itemValue">@Model.NumberOfCopies</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Replacement Cost:</td>
+                    <td class="itemValue">@Model.Cost</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryData.Models.Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="">
+    <table class="table  table-hover mt-5 pt-5">
+        <thead class="table-primary">
+            <tr>
+                <th>Author</th>
+                <th>ImageUrl</th>
+                <th>ISBN</th>
+                <th>Location</th>
+                <th>NumberOfCopies</th>
+                <th>Cost</th>
+                <th>Action Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null &&  Model.Count() > 0)
+            {
+                foreach (var org in Model)
+                {
+                    <tr>
+                        <td>@org.Author</td>
+                        <td>@org.ImageUrl</td>
+                        <td>@org.ISBN</td>
+                        <td>@org.Location</td>
+                        <td>@org.NumberOfCopies</td>
+                        <td>@org.Cost</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = org.Id }) |
+                            @Html.ActionLink("Details", "Detail", new { id = org.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = org.Id })
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+    </div>
+
